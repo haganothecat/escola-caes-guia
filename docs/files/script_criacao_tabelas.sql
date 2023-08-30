@@ -148,7 +148,7 @@ CREATE TABLE "visita" (
   "endereco" text NOT NULL,
   "bairro" text NOT NULL,
   "cidade" text NOT NULL,
-  "CEP" integer,
+  "cep" integer,
   "telefone_escola" integer,
   "nome_responsave" text NOT NULL,
   "telefone_responsavel" integer,

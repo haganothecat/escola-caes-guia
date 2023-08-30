@@ -1,112 +1,51 @@
 package hkeller.escolacaesguia.controllers;
 
+import hkeller.escolacaesguia.models.Visita;
+import hkeller.escolacaesguia.services.VisitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import hkeller.escolacaesguia.dtos.VisitaDto;
-import hkeller.escolacaesguia.dtos.RequisicaoCadastroVisitaDto;
-import hkeller.escolacaesguia.services.CadastrarVisitaServico;
-import hkeller.escolacaesguia.services.DeletarVisitaServico;
-import hkeller.escolacaesguia.services.EditarVisitaServico;
-import hkeller.escolacaesguia.services.ObterVisitaServico;
-import hkeller.escolacaesguia.services.ObterListaVisitasServico;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.Valid;
-
-import org.springframework.web.bind.annotation.PostMapping;
-
+import java.util.List;
 
 @Controller
 @RequestMapping("/visitas")
 public class VisitaController {
-  @Autowired
-  CadastrarVisitaServico cadastrarVisitaServico;
+
+  private final VisitaService visitaService;
 
   @Autowired
-  ObterListaVisitasServico obterListaVisitasServico;
-
-  @Autowired
-  DeletarVisitaServico deletarVisitaServico;
-
-  @Autowired
-  ObterVisitaServico obterVisitaServico;
-
-  @Autowired
-  EditarVisitaServico editarVisitaServico;
-
-  @GetMapping("cadastro")
-  public String getFormularioCadastro(Model model) {
-    RequisicaoCadastroVisitaDto visita = new RequisicaoCadastroVisitaDto();
-
-    model.addAttribute("visita", visita);
-
-    return "visita/cadastro";
-  }
-
-  @PostMapping()
-  public String post(@Valid @ModelAttribute("visita") RequisicaoCadastroVisitaDto visita, BindingResult result, Model model) {
-    if (result.hasErrors()) {
-      model.addAttribute("visita", visita);
-
-      return "visita/cadastro";
-    }
-
-    cadastrarVisitaServico.executar(visita);
-
-    return "redirect:/visitas";
+  public VisitaController(VisitaService visitaService) {
+    this.visitaService = visitaService;
   }
 
   @GetMapping()
-  public String get(HttpServletRequest request, Model model) {
-    String baseUrl = ServletUriComponentsBuilder
-      .fromRequestUri(request)
-      .replacePath(null)
-      .build()
-      .toUriString();
-
-    model.addAttribute("baseUrl", baseUrl);
-
+  public String listVisitas(Model model) {
+    List<Visita> visitas = visitaService.getAllVisitas();
+    model.addAttribute("visitas", visitas);
     return "visita/listagem";
   }
 
-  @GetMapping("{idVisita}/deletar")
-  public String delete(@PathVariable("idVisita") Long id) {
-    deletarVisitaServico.execute(id);
-
-    return "redirect:/visitas";
+  @GetMapping("/cadastrar")
+  public String cadastrarVisita() {
+    return "visita/cadastro";
   }
 
-  @GetMapping("{idCao}/editar")
-  public String formEditar(@PathVariable("idCao") Long idCao, Model model) {
-    VisitaDto caoDto = obterVisitaServico.execute(idCao);
-
-    model.addAttribute("cao", caoDto);
-
-    return "cao/editar";
+  @GetMapping("/editar/{id}")
+  public String editarVisita(@PathVariable Long id, Model model) {
+    Visita visita = visitaService.getVisitaById(id);
+    model.addAttribute("visita", visita);
+    return "visita/editar";
   }
 
-  @PostMapping("{idCao}/editar")
-  public String editar(@PathVariable("idCao") Long idCao, @ModelAttribute("cao") VisitaDto caoDto) {
-    caoDto.setId(idCao);
-
-    editarVisitaServico.execute(caoDto);
-
-    return "redirect:/caes";
+  @GetMapping("/visualizar/{id}")
+  public String visualizarVisita(@PathVariable Long id, Model model) {
+    Visita visita = visitaService.getVisitaById(id);
+    model.addAttribute("visita", visita);
+    return "visita/visualizar";
   }
 
-  @GetMapping("{idCao}/visualizar")
-  public String visualizar(@PathVariable("idCao") Long idCao, Model model) {
-    VisitaDto caoDto = obterVisitaServico.execute(idCao);
-
-    model.addAttribute("cao", caoDto);
-
-    return "cao/visualizar";
-  }
 }
