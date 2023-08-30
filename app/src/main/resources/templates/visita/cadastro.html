@@ -14,59 +14,216 @@
     <div class="container-sm py-4">
       <h1 class="mb-3">Cadastro de visita</h1>
 
-      <form action="/cadastrar-visita" method="post">
-        <label for="nomeEscola">Nome da Escola:</label>
-        <input type="text" id="nomeEscola" name="nomeEscola" required><br>
+      <form method="post" th:action="@{/visitas}" th:object="${visita}" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="nomeEscola" class="form-label">Nome da Escola</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomeEscola"
+            name="nomeEscola"
+            th:field="*{nomeEscola}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{nomeEscola}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="emailEscola" class="form-label">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailEscola"
+            name="emailEscola"
+            th:field="*{emailEscola}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{emailEscola}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="enderecoRua" class="form-label">Endereço - Rua e Número</label>
+          <input
+            type="text"
+            class="form-control"
+            id="enderecoRua"
+            name="enderecoRua"
+            th:field="*{enderecoRua}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{enderecoRua}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bairro"
+            name="bairro"
+            th:field="*{bairro}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{bairro}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="cidade" class="form-label">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cidade"
+            name="cidade"
+            th:field="*{cidade}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{cidade}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="cep" class="form-label">CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            name="cep"
+            th:field="*{cep}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{cep}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="telefoneEscola" class="form-label">Telefone da Escola</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefoneEscola"
+            name="telefoneEscola"
+            th:field="*{telefoneEscola}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{telefoneEscola}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="nomeProfessor" class="form-label">Nome do(a) professor(a) responsável pela visita</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomeProfessor"
+            name="nomeProfessor"
+            th:field="*{nomeProfessor}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{nomeProfessor}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="telefoneProfessor" class="form-label">Telefone (whats) do(a) professor(a)</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefoneProfessor"
+            name="telefoneProfessor"
+            th:field="*{telefoneProfessor}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{telefoneProfessor}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="numAlunos" class="form-label">Número aproximado de alunos</label>
+          <input
+            type="number"
+            class="form-control"
+            id="numAlunos"
+            name="numAlunos"
+            th:field="*{numAlunos}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{numAlunos}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="classeEscolar" class="form-label">Classe escolar/série</label>
+          <input
+            type="text"
+            class="form-control"
+            id="classeEscolar"
+            name="classeEscolar"
+            th:field="*{classeEscolar}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{classeEscolar}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="idadeMedia" class="form-label">Idade média dos alunos</label>
+          <input
+            type="text"
+            class="form-control"
+            id="idadeMedia"
+            name="idadeMedia"
+            th:field="*{idadeMedia}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{idadeMedia}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="objetivoVisita" class="form-label">Objetivo da escola ao receber a visita da Escola HKeller</label>
+          <textarea
+            class="form-control"
+            id="objetivoVisita"
+            name="objetivoVisita"
+            th:field="*{objetivoVisita}"
+            th:errorclass="is-invalid"
+            rows="4"
+            required
+          ></textarea>
+          <div class="invalid-feedback" th:errors="*{objetivoVisita}"></div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="caesGuias"
+              name="caesGuias"
+              th:field="*{caesGuias}"
+            />
+            <label class="form-check-label" for="caesGuias">
+              Podemos levar cães-guias graduados ou em treinamento na visita à sua escola? Sim/Não
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="dataHorario" class="form-label">Data e horário sugeridos para a visita</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="dataHorario"
+            name="dataHorario"
+            th:field="*{dataHorario}"
+            th:errorclass="is-invalid"
+            required
+          />
+          <div class="invalid-feedback" th:errors="*{dataHorario}"></div>
+        </div>
+        <div class="mb-3">
+          <label for="outrasInformacoes" class="form-label">Outras informações que a sua escola queira nos passar</label>
+          <textarea
+            class="form-control"
+            id="outrasInformacoes"
+            name="outrasInformacoes"
+            th:field="*{outrasInformacoes}"
+            rows="4"
+          ></textarea>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" required><br>
-
-        <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" name="bairro" required><br>
-
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" required><br>
-
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep"><br>
-
-        <label for="telefoneEscola">Telefone da Escola:</label>
-        <input type="text" id="telefoneEscola" name="telefoneEscola"><br>
-
-        <label for="nomeResponsavel">Nome do Responsável:</label>
-        <input type="text" id="nomeResponsavel" name="nomeResponsavel" required><br>
-
-        <label for="telefoneResponsavel">Telefone do Responsável:</label>
-        <input type="text" id="telefoneResponsavel" name="telefoneResponsavel"><br>
-
-        <label for="numeroAlunos">Número de Alunos:</label>
-        <input type="number" id="numeroAlunos" name="numeroAlunos"><br>
-
-        <label for="serieEscolar">Série Escolar:</label>
-        <input type="text" id="serieEscolar" name="serieEscolar" required><br>
-
-        <label for="idadeAlunos">Idade dos Alunos:</label>
-        <input type="number" id="idadeAlunos" name="idadeAlunos"><br>
-
-        <label for="textoObjetivo">Objetivo da Visita:</label>
-        <textarea id="textoObjetivo" name="textoObjetivo" rows="4" required></textarea><br>
-
-        <label for="simNao">Visita Confirmada (0 - Não, 1 - Sim):</label>
-        <input type="number" id="simNao" name="simNao"><br>
-
-        <label for="dataVisita">Data da Visita:</label>
-        <input type="date" id="dataVisita" name="dataVisita"><br>
-
-        <label for="horaVisita">Hora da Visita:</label>
-        <input type="text" id="horaVisita" name="horaVisita"><br>
-
-        <label for="informacoesExtras">Informações Extras:</label>
-        <textarea id="informacoesExtras" name="informacoesExtras" rows="4" required></textarea><br>
-
-        <button type="submit">Cadastrar Visita</button>
+        <a type="button" class="btn btn-secondary" th:href="@{/visitas}">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
     </div>
   </main>

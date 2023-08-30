@@ -1,24 +1,64 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Listagem de Visitas</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="/libs/pagination.js/pagination-2.6.0.css">
+  <title>Listagem de Visitas de Escola - Helen Keller</title>
 </head>
 <body>
-<h1>Listagem de Visitas</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Nome da Escola</th>
-    <th>Data da Visita</th>
-    <!-- Adicione mais colunas conforme necessário -->
-  </tr>
-  <tr th:each="visita : ${visitas}">
-    <td th:text="${visita.id}"></td>
-    <td th:text="${visita.nomeEscola}"></td>
-    <td th:text="${#dates.format(visita.dataVisita, 'dd/MM/yyyy')}"></td>
-    <!-- Adicione mais colunas conforme necessário -->
-  </tr>
-</table>
+<div th:insert="fragments/header :: header"></div>
+
+<div class="container-sm py-4" id="listagem-visitas-container">
+  <h1 class="mb-3">Visitas de Escola</h1>
+
+  <a class="btn btn-primary mb-3" th:href="@{/visitas/cadastro}">Cadastrar visita</a>
+
+  <table class="table table-hover" hidden>
+    <thead>
+    <tr>
+      <th scope="col">Nome da Escola</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Telefone da Escola</th>
+      <th scope="col">Nome do(a) Professor(a) Responsável</th>
+      <th scope="col">Telefone (WhatsApp) do(a) Professor(a)</th>
+      <th scope="col">Número Aproximado de Alunos</th>
+      <th scope="col">Classe Escolar/Série</th>
+      <th scope="col">Idade Média dos Alunos</th>
+      <th scope="col">Objetivo da Visita</th>
+      <th scope="col">Cães-Guias na Visita</th>
+      <th scope="col">Data e Horário Sugeridos</th>
+      <th scope="col">Outras Informações</th>
+      <th scope="col" class="text-center">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Preenchido via javascript em escola/listagem.js -->
+    </tbody>
+    <tfoot>
+    <!-- Preenchido via javascript em escola/listagem.js -->
+    </tfoot>
+  </table>
+
+  <div role="alert" hidden></div>
+</div>
+
+<!-- Modal para confirmar exclusão da visita -->
+<div th:insert="fragments/modals :: basic-modal"></div>
+
+<!-- URL base utilizada na construção dos links dos botões de ação de cada item da tabela -->
+<input type="hidden" id="base-url" th:value="${baseUrl}">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="/libs/jquery/jquery-3.6.4.min.js"></script>
+<script src="/libs/pagination.js/pagination-2.6.0.min.js"></script>
+<script src="/js/escola/listagem.js"></script>
+<script src="/js/shared/modals.js"></script>
 </body>
 </html>
