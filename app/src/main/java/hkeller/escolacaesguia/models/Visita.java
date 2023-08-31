@@ -2,6 +2,7 @@ package hkeller.escolacaesguia.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -32,7 +33,7 @@ public class Visita {
   @Column(name = "telefone_escola")
   private Integer telefoneEscola;
 
-  @Column(name = "nome_responsave", nullable = false)
+  @Column(name = "nome_responsavel", nullable = false)
   private String nomeResponsavel;
 
   @Column(name = "telefone_responsavel")
@@ -54,7 +55,7 @@ public class Visita {
   private Integer simNao;
 
   @Column(name = "data_visita")
-  private Date dataVisita;
+  private LocalDate dataVisita;
 
   @Column(name = "hora_visita")
   private Integer horaVisita;
@@ -62,4 +63,147 @@ public class Visita {
   @Column(name = "informacoes_extras", nullable = false)
   private String informacoesExtras;
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getNomeEscola() {
+    return nomeEscola;
+  }
+
+  public void setNomeEscola(String nomeEscola) {
+    this.nomeEscola = nomeEscola;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getEndereco() {
+    return endereco;
+  }
+
+  public void setEndereco(String endereco) {
+    this.endereco = endereco;
+  }
+
+  public String getBairro() {
+    return bairro;
+  }
+
+  public void setBairro(String bairro) {
+    this.bairro = bairro;
+  }
+
+  public String getCidade() {
+    return cidade;
+  }
+
+  public void setCidade(String cidade) {
+    this.cidade = cidade;
+  }
+
+  public Integer getCep() {
+    return cep;
+  }
+
+  public void setCep(Integer cep) {
+    this.cep = cep;
+  }
+
+  public Integer getTelefoneEscola() {
+    return telefoneEscola;
+  }
+
+  public void setTelefoneEscola(Integer telefoneEscola) {
+    this.telefoneEscola = telefoneEscola;
+  }
+
+  public String getNomeResponsavel() {
+    return nomeResponsavel;
+  }
+
+  public void setNomeResponsavel(String nomeResponsavel) {
+    this.nomeResponsavel = nomeResponsavel;
+  }
+
+  public Integer getTelefoneResponsavel() {
+    return telefoneResponsavel;
+  }
+
+  public void setTelefoneResponsavel(Integer telefoneResponsavel) {
+    this.telefoneResponsavel = telefoneResponsavel;
+  }
+
+  public Integer getNumeroAlunos() {
+    return numeroAlunos;
+  }
+
+  public void setNumeroAlunos(Integer numeroAlunos) {
+    this.numeroAlunos = numeroAlunos;
+  }
+
+  public String getSerieEscolar() {
+    return serieEscolar;
+  }
+
+  public void setSerieEscolar(String serieEscolar) {
+    this.serieEscolar = serieEscolar;
+  }
+
+  public Integer getIdadeAlunos() {
+    return idadeAlunos;
+  }
+
+  public void setIdadeAlunos(Integer idadeAlunos) {
+    this.idadeAlunos = idadeAlunos;
+  }
+
+  public String getTextoObjetivo() {
+    return textoObjetivo;
+  }
+
+  public void setTextoObjetivo(String textoObjetivo) {
+    this.textoObjetivo = textoObjetivo;
+  }
+
+  public Integer getSimNao() {
+    return simNao;
+  }
+
+  public void setSimNao(Integer simNao) {
+    this.simNao = simNao;
+  }
+
+  public LocalDate getDataVisita() {
+    return dataVisita;
+  }
+
+  public void setDataVisita(LocalDate dataVisita) {
+    this.dataVisita = dataVisita;
+  }
+
+  public Integer getHoraVisita() {
+    return horaVisita;
+  }
+
+  public void setHoraVisita(Integer horaVisita) {
+    this.horaVisita = horaVisita;
+  }
+
+  public String getInformacoesExtras() {
+    return informacoesExtras;
+  }
+
+  public void setInformacoesExtras(String informacoesExtras) {
+    this.informacoesExtras = informacoesExtras;
+  }
 }

@@ -1,8 +1,12 @@
 package hkeller.escolacaesguia.services;
 
 import hkeller.escolacaesguia.models.Visita;
+import hkeller.escolacaesguia.models.Visita;
 import hkeller.escolacaesguia.repositories.VisitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,4 +29,11 @@ public class VisitaService {
     return visitaRepository.getReferenceById(id);
   }
 
+  public Visita save(Visita visita) {
+    return visitaRepository.save(visita);
+  }
+
+  public Page<Visita> pagina(Integer page, Integer size) {
+      return visitaRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
+  }
 }

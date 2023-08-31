@@ -150,7 +150,7 @@ CREATE TABLE "visita" (
   "cidade" text NOT NULL,
   "cep" integer,
   "telefone_escola" integer,
-  "nome_responsave" text NOT NULL,
+  "nome_responsavel" text NOT NULL,
   "telefone_responsavel" integer,
   "numero_alunos" integer,
   "serie_escolar" text NOT NULL,
