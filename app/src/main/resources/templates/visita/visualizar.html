@@ -100,108 +100,124 @@
         />
       </div>
       <div class="mb-3">
-        <label for="nomeProfessor" class="form-label">Nome do(a) Professor(a) Responsável</label>
+        <label for="nomeResponsavel" class="form-label">Nome do(a) Professor(a) Responsável</label>
         <input
           type="text"
           class="form-control"
-          id="nomeProfessor"
-          name="nomeProfessor"
-          th:field="*{nomeProfessor}"
+          id="nomeResponsavel"
+          name="nomeResponsavel"
+          th:field="*{nomeResponsavel}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="telefoneProfessor" class="form-label">Telefone (Whatsapp) do(a) Professor(a)</label>
+        <label for="telefoneResponsavel" class="form-label">Telefone (Whatsapp) do(a) Professor(a)</label>
         <input
           type="tel"
           class="form-control"
-          id="telefoneProfessor"
-          name="telefoneProfessor"
-          th:field="*{telefoneProfessor}"
+          id="telefoneResponsavel"
+          name="telefoneResponsavel"
+          th:field="*{telefoneResponsavel}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="numAlunos" class="form-label">Número Aproximado de Alunos</label>
+        <label for="numeroAlunos" class="form-label">Número Aproximado de Alunos</label>
         <input
           type="number"
           class="form-control"
-          id="numAlunos"
-          name="numAlunos"
-          th:field="*{numAlunos}"
+          id="numeroAlunos"
+          name="numeroAlunos"
+          th:field="*{numeroAlunos}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="classeEscolar" class="form-label">Classe Escolar/Série</label>
+        <label for="serieEscolar" class="form-label">Classe Escolar/Série</label>
         <input
           type="text"
           class="form-control"
-          id="classeEscolar"
-          name="classeEscolar"
-          th:field="*{classeEscolar}"
+          id="serieEscolar"
+          name="serieEscolar"
+          th:field="*{serieEscolar}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="idadeMedia" class="form-label">Idade Média dos Alunos</label>
+        <label for="idadeAlunos" class="form-label">Idade Média dos Alunos</label>
         <input
           type="number"
           class="form-control"
-          id="idadeMedia"
-          name="idadeMedia"
-          th:field="*{idadeMedia}"
+          id="idadeAlunos"
+          name="idadeAlunos"
+          th:field="*{idadeAlunos}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="objetivoEscola" class="form-label">Objetivo da Escola ao Receber a Visita</label>
+        <label for="textoObjetivo" class="form-label">Objetivo da Escola ao Receber a Visita</label>
         <textarea
           class="form-control"
-          id="objetivoEscola"
-          name="objetivoEscola"
-          th:field="*{objetivoEscola}"
+          id="textoObjetivo"
+          name="textoObjetivo"
+          th:field="*{textoObjetivo}"
           rows="4"
           readonly
           disabled
         ></textarea>
       </div>
       <div class="mb-3">
-        <label for="caesGuias" class="form-label">Podemos Levar Cães-Guias Graduados ou em Treinamento na Visita à Sua Escola?</label>
+        <label for="simNao" class="form-label">Podemos Levar Cães-Guias Graduados ou em Treinamento na Visita à Sua Escola?</label>
         <input
           type="text"
           class="form-control"
-          id="caesGuias"
-          name="caesGuias"
-          th:field="*{caesGuias}"
+          id="simNao"
+          name="simNao"
+          th:field="*{simNao}"
           readonly
           disabled
         />
       </div>
       <div class="mb-3">
-        <label for="dataHorario" class="form-label">Data e Horário Sugerido para a Visita</label>
+        <label for="dataVisita" class="form-label">Data sugerida para a visita</label>
         <input
-          type="datetime-local"
+          type="date"
           class="form-control"
-          id="dataHorario"
-          name="dataHorario"
-          th:field="*{dataHorario}"
+          id="dataVisita"
+          name="dataVisita"
+          th:field="*{dataVisita}"
           readonly
           disabled
         />
       </div>
+
+      <td class="col-md-1">${visita.dataVisita}</td>
+
       <div class="mb-3">
-        <label for="outrasInformacoes" class="form-label">Outras Informações</label>
+        <label for="horaVisita" class="form-label">Horário sugerido para a visita</label>
+        <input
+          type="text"
+          class="form-control"
+          id="horaVisita"
+          name="horaVisita"
+          th:field="*{horaVisita}"
+          readonly
+          disabled
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="informacoesExtras" class="form-label">Outras Informações</label>
         <textarea
           class="form-control"
-          id="outrasInformacoes"
-          name="outrasInformacoes"
-          th:field="*{outrasInformacoes}"
+          id="informacoesExtras"
+          name="informacoesExtras"
+          th:field="*{informacoesExtras}"
           rows="4"
           readonly
           disabled
@@ -212,6 +228,6 @@
   </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

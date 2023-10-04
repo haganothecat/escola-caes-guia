@@ -14,7 +14,7 @@
     <div class="container-sm py-4">
       <h1 class="mb-3">Cadastro de visita</h1>
 
-      <form method="post" th:action="@{/visitas/cadastro}" th:object="${visita}" class="needs-validation" novalidate>
+      <form method="post" th:action="@{/visitas/cadastro}" th:object="${visita}" class="needs-validation">
         <div class="mb-3">
           <label for="nomeEscola" class="form-label">Nome da Escola</label>
           <input
@@ -26,7 +26,6 @@
             th:errorclass="is-invalid"
             required
           />
-          <div class="invalid-feedback" th:errors="*{nomeEscola}"></div>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">E-mail</label>
@@ -84,11 +83,13 @@
           <label for="cep" class="form-label">CEP</label>
           <input
             type="text"
+            maxlength="8"
             class="form-control"
             id="cep"
             name="cep"
             th:field="*{cep}"
             th:errorclass="is-invalid"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
             required
           />
           <div class="invalid-feedback" th:errors="*{cep}"></div>
@@ -96,13 +97,15 @@
         <div class="mb-3">
           <label for="telefoneEscola" class="form-label">Telefone da Escola</label>
           <input
-            type="tel"
+            type="text"
             class="form-control"
             id="telefoneEscola"
             name="telefoneEscola"
             th:field="*{telefoneEscola}"
             th:errorclass="is-invalid"
-            required
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+            maxlength="11"
+
           />
           <div class="invalid-feedback" th:errors="*{telefoneEscola}"></div>
         </div>
@@ -122,40 +125,44 @@
         <div class="mb-3">
           <label for="telefoneResponsavel" class="form-label">Telefone (whats) do(a) professor(a)</label>
           <input
-            type="tel"
+            type="text"
             class="form-control"
             id="telefoneResponsavel"
             name="telefoneResponsavel"
             th:field="*{telefoneResponsavel}"
             th:errorclass="is-invalid"
-            required
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+            maxlength="11"
+
           />
           <div class="invalid-feedback" th:errors="*{telefoneResponsavel}"></div>
         </div>
         <div class="mb-3">
           <label for="numeroAlunos" class="form-label">Número aproximado de alunos</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             id="numeroAlunos"
             name="numeroAlunos"
             th:field="*{numeroAlunos}"
             th:errorclass="is-invalid"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
             required
           />
           <div class="invalid-feedback" th:errors="*{numeroAlunos}"></div>
         </div>
         <div class="mb-3">
           <label for="serieEscolar" class="form-label">Classe escolar/série</label>
-          <input
-            type="text"
-            class="form-control"
-            id="serieEscolar"
-            name="serieEscolar"
-            th:field="*{serieEscolar}"
-            th:errorclass="is-invalid"
-            required
-          />
+          <select class="form-select" id="serieEscolar" name="serieEscolar" th:field="*{serieEscolar}" th:errorclass="is-invalid" required>
+            <option value="Educação Infantil">Educação Infantil</option>
+            <option value="Fundamental I">Fundamental I</option>
+            <option value="Fundamental II">Fundamental II</option>
+            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Ensino Superior">Ensino Superior</option>
+            <option value="Técnico">Técnico</option>
+            <option value="Educação Especial">Educação Especial</option>
+            <option value="Outros">Outros</option>
+          </select>
           <div class="invalid-feedback" th:errors="*{serieEscolar}"></div>
         </div>
         <div class="mb-3">
@@ -167,6 +174,7 @@
             name="idadeAlunos"
             th:field="*{idadeAlunos}"
             th:errorclass="is-invalid"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
             required
           />
           <div class="invalid-feedback" th:errors="*{idadeAlunos}"></div>
@@ -195,7 +203,7 @@
               th:field="*{simNao}"
             />
             <label class="form-check-label" for="simNao">
-              Podemos levar cães-guias graduados ou em treinamento na visita à sua escola? Sim/Não
+              Podemos levar cães-guias graduados ou em treinamento na visita à sua escola?
             </label>
           </div>
         </div>
@@ -217,11 +225,13 @@
           <input
             type="text"
             maxlength="4"
+            placeholder="00:00"
             class="form-control"
             id="horaVisita"
             name="horaVisita"
             th:field="*{horaVisita}"
             th:errorclass="is-invalid"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
             required
             />
             <div class="invalid-feedback" th:errors="*{horaVisita}"></div>

@@ -44,9 +44,7 @@ public class CaoController {
     @GetMapping("cadastro")
     public String getFormularioCadastro(Model model) {
         RequisicaoCadastroCaoDto cao = new RequisicaoCadastroCaoDto();
-
         model.addAttribute("cao", cao);
-        
         return "cao/cadastro";
     }
 
@@ -54,7 +52,6 @@ public class CaoController {
     public String post(@Valid @ModelAttribute("cao") RequisicaoCadastroCaoDto cao, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("cao", cao);
-
             return "cao/cadastro";
         }
 
@@ -62,7 +59,7 @@ public class CaoController {
 
         return "redirect:/caes";
     }
-    
+
     @GetMapping()
     public String get(HttpServletRequest request, Model model) {
         String baseUrl = ServletUriComponentsBuilder
@@ -88,7 +85,7 @@ public class CaoController {
         CaoDto caoDto = obterCaoServico.execute(idCao);
 
         model.addAttribute("cao", caoDto);
-        
+
         return "cao/editar";
     }
 

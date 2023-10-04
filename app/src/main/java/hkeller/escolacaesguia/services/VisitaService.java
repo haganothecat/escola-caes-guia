@@ -36,4 +36,5 @@ public class VisitaService {
   public Page<Visita> pagina(Integer page, Integer size) {
       return visitaRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
   }
+
 }

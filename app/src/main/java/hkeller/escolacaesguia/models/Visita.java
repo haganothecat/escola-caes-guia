@@ -27,7 +27,7 @@ public class Visita {
   @Column(nullable = false)
   private String cidade;
 
-  @Column(name = "cep")
+  @Column(name = "CEP")
   private Integer cep;
 
   @Column(name = "telefone_escola")

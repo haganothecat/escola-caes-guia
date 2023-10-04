@@ -30,30 +30,30 @@
         <div class="invalid-feedback" th:errors="*{nomeEscola}"></div>
       </div>
       <div class="mb-3">
-        <label for="emailEscola" class="form-label">E-mail</label>
+        <label for="email" class="form-label">E-mail</label>
         <input
           type="email"
           class="form-control"
-          id="emailEscola"
-          name="emailEscola"
-          th:field="*{emailEscola}"
+          id="email"
+          name="email"
+          th:field="*{email}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{emailEscola}"></div>
+        <div class="invalid-feedback" th:errors="*{email}"></div>
       </div>
       <div class="mb-3">
-        <label for="enderecoRua" class="form-label">Endereço - Rua e Número</label>
+        <label for="endereco" class="form-label">Endereço - Rua e Número</label>
         <input
           type="text"
           class="form-control"
-          id="enderecoRua"
-          name="enderecoRua"
-          th:field="*{enderecoRua}"
+          id="endereco"
+          name="endereco"
+          th:field="*{endereco}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{enderecoRua}"></div>
+        <div class="invalid-feedback" th:errors="*{endereco}"></div>
       </div>
       <div class="mb-3">
         <label for="bairro" class="form-label">Bairro</label>
@@ -108,142 +108,147 @@
         <div class="invalid-feedback" th:errors="*{telefoneEscola}"></div>
       </div>
       <div class="mb-3">
-        <label for="nomeProfessor" class="form-label">Nome do(a) professor(a) responsável pela visita</label>
+        <label for="nomeResponsavel" class="form-label">Nome do(a) professor(a) responsável pela visita</label>
         <input
           type="text"
           class="form-control"
-          id="nomeProfessor"
-          name="nomeProfessor"
-          th:field="*{nomeProfessor}"
+          id="nomeResponsavel"
+          name="nomeResponsavel"
+          th:field="*{nomeResponsavel}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{nomeProfessor}"></div>
+        <div class="invalid-feedback" th:errors="*{nomeResponsavel}"></div>
       </div>
       <div class="mb-3">
-        <label for="telefoneProfessor" class="form-label">Telefone (WhatsApp) do(a) professor(a)</label>
+        <label for="telefoneResponsavel" class="form-label">Telefone (WhatsApp) do(a) professor(a)</label>
         <input
           type="tel"
           class="form-control"
-          id="telefoneProfessor"
-          name="telefoneProfessor"
-          th:field="*{telefoneProfessor}"
+          id="telefoneResponsavel"
+          name="telefoneResponsavel"
+          th:field="*{telefoneResponsavel}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{telefoneProfessor}"></div>
+        <div class="invalid-feedback" th:errors="*{telefoneResponsavel}"></div>
       </div>
       <div class="mb-3">
-        <label for="numAlunos" class="form-label">Número aproximado de alunos</label>
+        <label for="numeroAlunos" class="form-label">Número aproximado de alunos</label>
         <input
           type="number"
           class="form-control"
-          id="numAlunos"
-          name="numAlunos"
-          th:field="*{numAlunos}"
+          id="numeroAlunos"
+          name="numeroAlunos"
+          th:field="*{numeroAlunos}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{numAlunos}"></div>
+        <div class="invalid-feedback" th:errors="*{numeroAlunos}"></div>
       </div>
       <div class="mb-3">
-        <label for="classeEscolar" class="form-label">Classe escolar/série</label>
+        <label for="serieEscolar" class="form-label">Classe escolar/série</label>
         <input
           type="text"
           class="form-control"
-          id="classeEscolar"
-          name="classeEscolar"
-          th:field="*{classeEscolar}"
+          id="serieEscolar"
+          name="serieEscolar"
+          th:field="*{serieEscolar}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{classeEscolar}"></div>
+        <div class="invalid-feedback" th:errors="*{serieEscolar}"></div>
       </div>
       <div class="mb-3">
-        <label for="idadeMediaAlunos" class="form-label">Idade média dos alunos</label>
+        <label for="idadeAlunos" class="form-label">Idade média dos alunos</label>
         <input
           type="number"
           class="form-control"
-          id="idadeMediaAlunos"
-          name="idadeMediaAlunos"
-          th:field="*{idadeMediaAlunos}"
+          id="idadeAlunos"
+          name="idadeAlunos"
+          th:field="*{idadeAlunos}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{idadeMediaAlunos}"></div>
+        <div class="invalid-feedback" th:errors="*{idadeAlunos}"></div>
       </div>
       <div class="mb-3">
-        <label for="objetivoEscola" class="form-label">Objetivo da escola ao receber a visita da Escola Helen Keller</label>
+        <label for="textoObjetivo" class="form-label">Objetivo da escola ao receber a visita da Escola Helen Keller</label>
         <textarea
           class="form-control"
-          id="objetivoEscola"
-          name="objetivoEscola"
-          th:field="*{objetivoEscola}"
+          id="textoObjetivo"
+          name="textoObjetivo"
+          th:field="*{textoObjetivo}"
           rows="4"
           required
         ></textarea>
-        <div class="invalid-feedback" th:errors="*{objetivoEscola}"></div>
+        <div class="invalid-feedback" th:errors="*{textoObjetivo}"></div>
       </div>
       <div class="mb-3">
-        <label for="caesGuias" class="form-check-label">Podemos levar cães-guias graduados ou em treinamento na visita à sua escola? Sim/Não</label>
         <div class="form-check">
           <input
             class="form-check-input"
-            type="radio"
-            name="caesGuias"
-            id="caesGuiasSim"
-            th:field="*{caesGuias}"
-            th:value="Sim"
-            th:checked="${caesGuias == 'Sim'}"
-            required
+            type="checkbox"
+            id="simNao"
+            name="simNao"
+            value="1"
+            th:field="*{simNao}"
           />
-          <label class="form-check-label" for="caesGuiasSim">
-            Sim
+          <label class="form-check-label" for="simNao">
+            Podemos levar cães-guias graduados ou em treinamento na visita à sua escola?
           </label>
         </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="caesGuias"
-            id="caesGuiasNao"
-            th:field="*{caesGuias}"
-            th:value="Não"
-            th:checked="${caesGuias == 'Não'}"
-            required
-          />
-          <label class="form-check-label" for="caesGuiasNao">
-            Não
-          </label>
-        </div>
-        <div class="invalid-feedback" th:errors="*{caesGuias}"></div>
       </div>
       <div class="mb-3">
-        <label for="dataHorario" class="form-label">Data e horário sugeridos para a visita</label>
+        <label for="dataVisita" class="form-label">Data sugerida para a visita</label>
         <input
-          type="datetime-local"
+          type="date"
           class="form-control"
-          id="dataHorario"
-          name="dataHorario"
-          th:field="*{dataHorario}"
+          id="dataVisita"
+          name="dataVisita"
+          th:field="*{dataVisita}"
           th:errorclass="is-invalid"
           required
         />
-        <div class="invalid-feedback" th:errors="*{dataHorario}"></div>
+        <div class="invalid-feedback" th:errors="*{dataVisita}"></div>
+      </div>
+      <div class="mb-3">
+        <label for="horaVisita" class="form-label">Horário sugerido para a visita</label>
+        <input
+          type="text"
+          maxlength="4"
+          class="form-control"
+          id="horaVisita"
+          name="horaVisita"
+          th:field="*{horaVisita}"
+          th:errorclass="is-invalid"
+          required
+        />
+        <div class="invalid-feedback" th:errors="*{horaVisita}"></div>
+      </div>
+      <div class="mb-3">
+        <label for="informacoesExtras" class="form-label">Outras informações que a sua escola queira nos passar</label>
+        <textarea
+          class="form-control"
+          id="informacoesExtras"
+          name="informacoesExtras"
+          th:field="*{informacoesExtras}"
+          rows="4"
+        ></textarea>
       </div>
       <div class="mb-3">
         <label for="outrasInformacoes" class="form-label">Outras informações que a sua escola queira nos passar</label>
         <textarea
           class="form-control"
-          id="outrasInformacoes"
-          name="outrasInformacoes"
-          th:field="*{outrasInformacoes}"
+          id="informacoesExtras"
+          name="informacoesExtras"
+          th:field="*{informacoesExtras}"
           rows="4"
         ></textarea>
       </div>
 
       <a type="button" class="btn btn-secondary" th:href="@{/visitas}">Cancelar</a>
-      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a type="button" class="btn btn-primary" th:href="@{'/visitas/' + ${visita.id} + '/editar'}">Salvar</a>
     </form>
   </div>
 </main>
