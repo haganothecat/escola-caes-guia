@@ -1,7 +1,6 @@
 package hkeller.escolacaesguia.services;
 
 import hkeller.escolacaesguia.models.Visita;
-import hkeller.escolacaesguia.models.Visita;
 import hkeller.escolacaesguia.repositories.VisitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,4 +36,7 @@ public class VisitaService {
       return visitaRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
   }
 
+  public void excluirVisita(Long id) {
+    visitaRepository.deleteById(id);
+  }
 }

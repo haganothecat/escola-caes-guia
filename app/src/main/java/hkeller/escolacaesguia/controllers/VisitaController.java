@@ -1,17 +1,11 @@
 package hkeller.escolacaesguia.controllers;
 
-import hkeller.escolacaesguia.dtos.RequisicaoCadastroCaoDto;
 import hkeller.escolacaesguia.dtos.RequisicaoCadastroVisitasDto;
-import hkeller.escolacaesguia.models.Cao;
 import hkeller.escolacaesguia.models.Visita;
-import hkeller.escolacaesguia.services.DeletarTutorServico;
 import hkeller.escolacaesguia.services.VisitaService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,18 +45,51 @@ public class VisitaController {
       return "redirect:/visitas";
     }
 
-    @GetMapping("{id}/editar")
-    public String editarVisita(@PathVariable Long id, Model model) {
-      Visita visita = visitaService.getVisitaById(id);
+    @GetMapping("{idVisita}/editar")
+    public String editarVisita(@PathVariable Long idVisita, Model model) {
+      Visita visita = visitaService.getVisitaById(idVisita);
       model.addAttribute("visita", visita);
       return "visita/editar";
     }
+    @PostMapping("{idVisita}/editar")
+    public String editarVisita(@PathVariable Long idVisita, @ModelAttribute("visita") Visita visita) {
+      Visita visitaOriginal = visitaService.getVisitaById(idVisita);
 
-    @GetMapping("{id}/visualizar")
-    public String visualizarVisita(@PathVariable Long id, Model model) {
-      Visita visita = visitaService.getVisitaById(id);
+      visitaOriginal.setNomeEscola(visita.getNomeEscola());
+      visitaOriginal.setEmail(visita.getEmail());
+      visitaOriginal.setEndereco(visita.getEndereco());
+      visitaOriginal.setBairro(visita.getBairro());
+      visitaOriginal.setCidade(visita.getCidade());
+      visitaOriginal.setCep(visita.getCep());
+      visitaOriginal.setTelefoneEscola(visita.getTelefoneEscola());
+      visitaOriginal.setNomeResponsavel(visita.getNomeResponsavel());
+      visitaOriginal.setTelefoneResponsavel(visita.getTelefoneResponsavel());
+      visitaOriginal.setNumeroAlunos(visita.getNumeroAlunos());
+      visitaOriginal.setSerieEscolar(visita.getSerieEscolar());
+      visitaOriginal.setIdadeAlunos(visita.getIdadeAlunos());
+      visitaOriginal.setTextoObjetivo(visita.getTextoObjetivo());
+      visitaOriginal.setSimNao(visita.getSimNao());
+      visitaOriginal.setDataVisita(visita.getDataVisita());
+      visitaOriginal.setHoraVisita(visita.getHoraVisita());
+      visitaOriginal.setInformacoesExtras(visita.getInformacoesExtras());
+
+      visitaService.save(visitaOriginal);
+
+      return "redirect:/visitas";
+    }
+
+    @GetMapping("{idVisita}/visualizar")
+    public String visualizarVisita(@PathVariable Long idVisita, Model model) {
+      Visita visita = visitaService.getVisitaById(idVisita);
       model.addAttribute("visita", visita);
       return "visita/visualizar";
     }
 
-  }
+    @DeleteMapping("{idVisita}")
+    public String excluirVisita(@PathVariable Long idVisita) {
+      visitaService.excluirVisita(idVisita);
+
+      return "redirect:/visitas";
+    }
+
+}
